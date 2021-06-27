@@ -57,7 +57,6 @@ public class Player : MonoBehaviour
 
         if(Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, _interactableLayer))
         {
-            Debug.Log("Raycasting: "+hit.collider.gameObject, hit.collider.gameObject);
 
             InteractableObject interactable = hit.collider.gameObject.GetComponent<InteractableObject>();
 

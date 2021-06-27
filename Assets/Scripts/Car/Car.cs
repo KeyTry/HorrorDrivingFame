@@ -108,6 +108,12 @@ public class Car : MonoBehaviour
             _distance += Vector3.Distance(_rigidbody.position, _oldPos);
 
             _oldPos = _rigidbody.position;
+            Debug.Log("Distance: " + _distance);
+
+            if (_distance > 2000)
+            {
+                UIManager.Instance.DoWin();
+            }
         }
         else
         {
@@ -134,6 +140,7 @@ public class Car : MonoBehaviour
             Debug.Log("Pressed drive forward");
             if (!_startedMoving)
             {
+                GameManager.Instance.changeTiredFactor(0.01f);
                 Debug.Log("Start moving");
                 //_drivePaused = false;
                 //_drivingBackwardsTime = 0f;
@@ -157,6 +164,7 @@ public class Car : MonoBehaviour
             {
                 _startedMoving = false;
                 ToggleSpeed(false);
+                GameManager.Instance.changeTiredFactor(0.07f);
             }
         }
     }
