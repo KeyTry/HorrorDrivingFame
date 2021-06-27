@@ -15,9 +15,13 @@ public class Radio : InteractableObject
     [SerializeField]
     private AudioSource RadioObj;
     [SerializeField]
-    private GameObject monster;
+    private GameObject monster1;
     [SerializeField]
-    private AudioSource monsterSource;
+    private GameObject monster2;
+    [SerializeField]
+    private AudioSource monsterSource1;
+    [SerializeField]
+    private AudioSource monsterSource2;
 
 
     private bool isOn;
@@ -62,8 +66,15 @@ public class Radio : InteractableObject
                 RadioObj.loop = true;
                 GameManager.Instance.changeTiredFactor(0.007f);
                 StartCoroutine(NormalizeTire());
-                monster.SetActive(true);
-                monsterSource.Play();
+                if (GameManager.Instance.Sanity > 0.5f)
+                {
+                    monster1.SetActive(true);
+                    monsterSource1.Play();
+                }
+                else {
+                    monster2.SetActive(true);
+                    monsterSource2.Play();
+                }
             }
             else
             {
@@ -72,6 +83,7 @@ public class Radio : InteractableObject
                 GameManager.Instance.IncreaseTired(0.5f);
                 GameManager.Instance.changeTiredFactor(0.003f);
                 StartCoroutine(NormalizeTire());
+                StartCoroutine(ApagarRadio());
             }
             RadioObj.Play();
         }
@@ -81,8 +93,10 @@ public class Radio : InteractableObject
             RadioObj.Stop();
             GameManager.Instance.changeTiredFactor(0.005f);
             isOn = false;
-            monster.SetActive(false);
-            monsterSource.Stop();
+            monster1.SetActive(false);
+            monsterSource1.Stop();
+            monster2.SetActive(false);
+            monsterSource2.Stop();
         }
 
             
@@ -93,5 +107,19 @@ public class Radio : InteractableObject
     {
         yield return new WaitForSeconds(15);
         GameManager.Instance.changeTiredFactor(0.005f);
+    }
+
+    IEnumerator ApagarRadio() {
+        yield return new WaitForSeconds(60);
+        if (isOn) {
+            AudioManager.Instance.PlayAudio(Audios.StaticChangeChannel);
+            RadioObj.Stop();
+            GameManager.Instance.changeTiredFactor(0.005f);
+            isOn = false;
+            monster1.SetActive(false);
+            monsterSource1.Stop();
+            monster2.SetActive(false);
+            monsterSource2.Stop();
+        }
     }
 }
