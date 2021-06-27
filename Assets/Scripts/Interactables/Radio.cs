@@ -18,8 +18,6 @@ public class Radio : InteractableObject
     private GameObject monster;
     [SerializeField]
     private AudioSource monsterSource;
-    [SerializeField]
-    private AudioClip monsterClip;
 
 
     private bool isOn;
@@ -29,8 +27,7 @@ public class Radio : InteractableObject
 
     private void Start()
     {
-        monsterSource.clip = monsterClip;
-        monsterSource.loop = true;
+
     }
 
     public override void PerformInteraction()
