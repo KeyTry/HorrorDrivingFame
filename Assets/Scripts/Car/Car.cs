@@ -48,6 +48,15 @@ public class Car : MonoBehaviour
         _oldPos = _rigidbody.position;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag(Constants.TREES_TAG))
+        {
+            GameManager.Instance.Playing = false;
+            UIManager.Instance.DoGameOver();
+        }
+    }
+
     private void FixedUpdate()
     {
         if(!GameManager.Instance.Playing)
