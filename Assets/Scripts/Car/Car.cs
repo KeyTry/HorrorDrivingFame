@@ -153,33 +153,33 @@ public class Car : MonoBehaviour
     }
     public void DriveBackwardsInput(InputAction.CallbackContext pContext)
     {
-        if (pContext.performed)
-        {
-            Debug.Log("Pressed drive backwards");
-            if (!_startedMoving)
-            {
-                _startedMoving = true;
-                _drivingBackwards = true;
-                _onStartedDriving.Invoke();
+        //if (pContext.performed)
+        //{
+        //    Debug.Log("Pressed drive backwards");
+        //    if (!_startedMoving)
+        //    {
+        //        _startedMoving = true;
+        //        _drivingBackwards = true;
+        //        _onStartedDriving.Invoke();
 
-                if (_stopped)
-                {
-                    StartCar();
-                }
-                else
-                {
-                    ToggleSpeed(true);
-                }
-            }
-            else if (pContext.canceled)
-            {
-                if (_startedMoving)
-                {
-                    _startedMoving = false;
-                    ToggleSpeed(false);
-                }
-            }
-        }
+        //        if (_stopped)
+        //        {
+        //            StartCar();
+        //        }
+        //        else
+        //        {
+        //            ToggleSpeed(true);
+        //        }
+        //    }
+        //    else if (pContext.canceled)
+        //    {
+        //        if (_startedMoving)
+        //        {
+        //            _startedMoving = false;
+        //            ToggleSpeed(false);
+        //        }
+        //    }
+        //}
     }
 
     private void StartCar()
