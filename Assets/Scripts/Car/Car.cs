@@ -33,10 +33,10 @@ public class Car : MonoBehaviour
 
     private float _timeStopped = 0f;
 
-    private bool _drivingBackwards = false;
-    private float _drivingBackwardsTime = 0f;
+    //private bool _drivingBackwards = false;
+    //private float _drivingBackwardsTime = 0f;
 
-    private bool _drivePaused = false;
+    //private bool _drivePaused = false;
 
     private void Awake()
     {
@@ -55,22 +55,22 @@ public class Car : MonoBehaviour
             return;
         }
 
-        if (!_stopped && !_drivePaused)
+        if (!_stopped /*&& !_drivePaused*/)
         {
             _timeStopped = 0f;
 
             float speed = _currentSpeed;
 
-            if(_drivingBackwards)
-            {
-                speed = -_currentSpeed;
-                _drivingBackwardsTime += Time.deltaTime;
+            //if(_drivingBackwards)
+            //{
+            //    speed = -_currentSpeed;
+            //    _drivingBackwardsTime += Time.deltaTime;
 
-                if(_drivingBackwardsTime > 1f)
-                {
-                    _drivePaused = true;
-                }
-            }
+            //    if(_drivingBackwardsTime > 1f)
+            //    {
+            //        _drivePaused = true;
+            //    }
+            //}
 
             _rigidbody.MovePosition(_rigidbody.position + transform.forward * speed * Time.fixedDeltaTime);
 
