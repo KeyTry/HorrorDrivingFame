@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
 
     public bool Playing { get => _playing; set => _playing = value; }
+    public float Sanity { get => _sanity; set => _sanity = value; }
+    public float Tired { get => _tired; set => _tired = value; }
 
     private float _sanity = 1f;
     private float _tired = 1f;
@@ -48,5 +50,15 @@ public class GameManager : MonoBehaviour
     public void LoseSequence()
     {
         _playing = false;
+    }
+
+    public void changeSanityFactor(float reference)
+    {
+        _sanityFactor = reference;
+    }
+
+    public void changeTiredFactor(float reference)
+    {
+        _tiredFactor = reference;
     }
 }
