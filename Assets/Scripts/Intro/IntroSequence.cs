@@ -96,12 +96,12 @@ public class IntroSequence : MonoBehaviour
 
     private IEnumerator ToggleText(TextMeshProUGUI pText, bool pToggle, float pTime = 1f)
     {
-        Color targetColor = new Color(pText.color.r, _introText.color.g, _introText.color.b, 0f);
+        Color targetColor = new Color(pText.color.r, pText.color.g, pText.color.b, 0f);
 
         if(pToggle)
         {
             pText.gameObject.SetActive(true);
-            targetColor = new Color(pText.color.r, _introText.color.g, _introText.color.b, 1f);
+            targetColor = new Color(pText.color.r, pText.color.g, pText.color.b, 1f);
         }
 
         Color originalColor = pText.color;

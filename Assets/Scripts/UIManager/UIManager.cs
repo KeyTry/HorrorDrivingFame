@@ -12,6 +12,11 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _interactionMessage;
 
+    [SerializeField]
+    private GameObject _gameOverContainer;
+    [SerializeField]
+    private TextMeshProUGUI _gameOverText;
+
     private void Start()
     {
         if (_instance != null && _instance != this)
@@ -29,5 +34,55 @@ public class UIManager : MonoBehaviour
         _interactionMessage.text = "[E] INTERACT -"+pObjectName.ToUpper() + " "+pObjectState;
 
         _interactionMessage.gameObject.SetActive(pToggle);
+    }
+
+    public void DoGameOver()
+    {
+        StartCoroutine(DoGameOverCoroutine());
+    }
+
+    public IEnumerator DoGameOverCoroutine()
+    {
+
+        AudioManager.Instance.StopAudio(Audios.CarEngine);
+        AudioManager.Instance.PlayAudio(Audios.CrashSound);
+        _gameOverContainer.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
+
+        StartCoroutine(ToggleText(_gameOverText,true));
+    }
+
+
+    private IEnumerator ToggleText(TextMeshProUGUI pText, bool pToggle, float pTime = 1f)
+    {
+        Color targetColor = new Color(pText.color.r, pText.color.g, pText.color.b, 0f);
+
+        if (pToggle)
+        {
+            pText.gameObject.SetActive(true);
+            targetColor = new Color(pText.color.r, pText.color.g, pText.color.b, 1f);
+        }
+
+        Color originalColor = pText.color;
+
+        float normal = 0f;
+
+        while (normal < 1f)
+        {
+            pText.color = Color.Lerp(originalColor, targetColor, normal);
+
+            normal += Time.deltaTime / pTime;
+
+            yield return null;
+        }
+
+
+        if (!pToggle)
+        {
+            pText.gameObject.SetActive(false);
+        }
+
+        yield return null;
     }
 }
