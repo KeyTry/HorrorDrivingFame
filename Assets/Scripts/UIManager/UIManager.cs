@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _gameOverText;
     [SerializeField]
+    private TextMeshProUGUI _restartHint;
+    [SerializeField]
     private TextMeshProUGUI _winText;
 
     private void Start()
@@ -42,7 +44,7 @@ public class UIManager : MonoBehaviour
     public void DoWin()
     {
         GameManager.Instance.Playing = false;
-        StartCoroutine(DoGameOverCoroutine());
+        StartCoroutine(DoWinCoroutine());
     }
     public IEnumerator DoWinCoroutine()
     {
@@ -50,6 +52,7 @@ public class UIManager : MonoBehaviour
         _winContainer.SetActive(true);
 
         yield return new WaitForSeconds(2f);
+        AudioManager.Instance.PlayAudio(Audios.Win);
 
         StartCoroutine(ToggleText(_winText, true));
     }
@@ -71,6 +74,10 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         StartCoroutine(ToggleText(_gameOverText,true));
+
+        yield return new WaitForSeconds(1f);
+
+        StartCoroutine(ToggleText(_restartHint, true));
     }
 
 

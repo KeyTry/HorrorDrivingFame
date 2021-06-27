@@ -52,12 +52,14 @@ public class IntroSequence : MonoBehaviour
             yield return null;
         }
 
+
         yield return new WaitForSeconds(1f);
 
         StartCoroutine(ClearFogCoroutine());
         StartCoroutine(ToggleText(_introText, false, 3f));
 
         yield return new WaitForSeconds(2f);
+        GameManager.Instance.GameStarted = true;
 
         for (int i = 0; i < _instructionsText.Length; i++)
         {

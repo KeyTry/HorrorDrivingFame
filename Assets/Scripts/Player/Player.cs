@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
             yaw += Time.deltaTime * _speedH * _lookDirection.x;
 
             pitch = Mathf.Clamp(pitch, -10f, 60f);
-            yaw = Mathf.Clamp(yaw, -60f, 40f);
+            yaw = Mathf.Clamp(yaw, -60f, 45f);
 
             _camera.localEulerAngles = new Vector3(pitch, yaw, 0.0f);
         }

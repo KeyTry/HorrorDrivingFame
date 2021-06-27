@@ -10,7 +10,8 @@ public enum Audios
     CoffeeSip,
     RadioButton,
     StaticChangeChannel,
-    CrashSound
+    CrashSound,
+    Win
 }
 public enum AudioType
 {

@@ -64,7 +64,7 @@ public class Radio : InteractableObject
             {
                 RadioObj.clip = staticAudio[Random.Range(0, staticAudio.Length)];
                 RadioObj.loop = true;
-                GameManager.Instance.changeTiredFactor(0.007f);
+                GameManager.Instance.changeTiredFactor(0.012f);
                 StartCoroutine(NormalizeTire());
                 if (GameManager.Instance.Sanity > 0.5f)
                 {
@@ -80,8 +80,8 @@ public class Radio : InteractableObject
             {
                 RadioObj.clip = audioMusic[Random.Range(0, audioMusic.Length)];
                 RadioObj.loop = false;
-                GameManager.Instance.IncreaseTired(0.5f);
-                GameManager.Instance.changeTiredFactor(0.003f);
+                GameManager.Instance.IncreaseTired(0.1f);
+                GameManager.Instance.changeTiredFactor(0.08f);
                 StartCoroutine(NormalizeTire());
                 StartCoroutine(ApagarRadio());
             }
@@ -91,7 +91,7 @@ public class Radio : InteractableObject
             AudioManager.Instance.PlayAudio(Audios.RadioButton);
             AudioManager.Instance.PlayAudio(Audios.StaticChangeChannel);
             RadioObj.Stop();
-            GameManager.Instance.changeTiredFactor(0.005f);
+            GameManager.Instance.changeTiredFactor(0.09f);
             isOn = false;
             monster1.SetActive(false);
             monsterSource1.Stop();
@@ -106,7 +106,7 @@ public class Radio : InteractableObject
     IEnumerator NormalizeTire()
     {
         yield return new WaitForSeconds(15);
-        GameManager.Instance.changeTiredFactor(0.005f);
+        GameManager.Instance.changeTiredFactor(0.01f);
     }
 
     IEnumerator ApagarRadio() {
@@ -114,7 +114,7 @@ public class Radio : InteractableObject
         if (isOn) {
             AudioManager.Instance.PlayAudio(Audios.StaticChangeChannel);
             RadioObj.Stop();
-            GameManager.Instance.changeTiredFactor(0.005f);
+            GameManager.Instance.changeTiredFactor(0.012f);
             isOn = false;
             monster1.SetActive(false);
             monsterSource1.Stop();
