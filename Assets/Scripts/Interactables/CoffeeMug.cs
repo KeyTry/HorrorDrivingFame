@@ -26,7 +26,7 @@ public class CoffeeMug : InteractableObject
             _timesDrunk++;
             AudioManager.Instance.PlayAudio(Audios.CoffeeSip);
             GameManager.Instance.IncreaseTired(0.3f);
-            GameManager.Instance.changeTiredFactor(0.002f);
+            GameManager.Instance.changeTiredFactor(0.008f);
             StartCoroutine(NormalizeTire());
             _coffeeVisual.position = new Vector3(_coffeeVisual.position.x, _coffeeVisual.position.y - 0.02f, _coffeeVisual.position.z);
             if(_timesDrunk >= 5)
@@ -38,6 +38,6 @@ public class CoffeeMug : InteractableObject
 
     IEnumerator NormalizeTire() {
         yield return new WaitForSeconds(10);
-        GameManager.Instance.changeTiredFactor(0.005f);
+        GameManager.Instance.changeTiredFactor(0.01f);
     }
 }

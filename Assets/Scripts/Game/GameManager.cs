@@ -1,3 +1,4 @@
+using PSX;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,12 +17,15 @@ public class GameManager : MonoBehaviour
     private float _tired = 1f;
 
     private float _sanityFactor = 0.002f;
-    private float _tiredFactor = 0.005f;
+    private float _tiredFactor = 0.01f;
+
+    private FogController _fogController;
 
     private bool _playing = true;
 
     private void Start()
     {
+        _fogController = FindObjectOfType<FogController>();
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
@@ -33,18 +37,33 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    bool _lost = false;
+
     private void Update()
     {
         _sanity -= _sanityFactor * Time.deltaTime;
         _tired -= _tiredFactor * Time.deltaTime;
 
-        //Debug.Log("Sanity: "+_sanity);
-        //Debug.Log("Tired: " + _tired);
+        Debug.Log("Sanity: " + _sanity);
+        Debug.Log("Tired: " + _tired);
+
+        _fogController.FogDistance = Mathf.Lerp(12f,0.6f,_tired);
+
+        if(_tired <= 0f && !_lost)
+        {
+            _lost = true;
+            UIManager.Instance.DoGameOver();
+        }
     }
 
     public void IncreaseTired(float pIncrease)
     {
         _tired += pIncrease;
+
+        if(_tired > 1f)
+        {
+            _tired = 1f;
+        }
     }
 
     public void LoseSequence()
