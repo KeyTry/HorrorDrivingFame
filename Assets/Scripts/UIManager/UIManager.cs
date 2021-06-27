@@ -13,9 +13,13 @@ public class UIManager : MonoBehaviour
     private TextMeshProUGUI _interactionMessage;
 
     [SerializeField]
+    private GameObject _winContainer;
+    [SerializeField]
     private GameObject _gameOverContainer;
     [SerializeField]
     private TextMeshProUGUI _gameOverText;
+    [SerializeField]
+    private TextMeshProUGUI _winText;
 
     private void Start()
     {
@@ -35,6 +39,20 @@ public class UIManager : MonoBehaviour
 
         _interactionMessage.gameObject.SetActive(pToggle);
     }
+    public void DoWin()
+    {
+        StartCoroutine(DoGameOverCoroutine());
+    }
+    public IEnumerator DoWinCoroutine()
+    {
+
+        _winContainer.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
+
+        StartCoroutine(ToggleText(_winText, true));
+    }
+
 
     public void DoGameOver()
     {
