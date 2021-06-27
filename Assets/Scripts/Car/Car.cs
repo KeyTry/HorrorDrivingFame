@@ -102,12 +102,12 @@ public class Car : MonoBehaviour
         }
         else
         {
-            _timeStopped += Time.deltaTime;
+            //_timeStopped += Time.deltaTime;
 
-            if(_timeStopped > 3f)
-            {
-                GameManager.Instance.LoseSequence();
-            }
+            //if(_timeStopped > 3f)
+            //{
+            //    GameManager.Instance.LoseSequence();
+            //}
         }
     }
 
@@ -126,10 +126,10 @@ public class Car : MonoBehaviour
             if (!_startedMoving)
             {
                 Debug.Log("Start moving");
-                _drivePaused = false;
-                _drivingBackwardsTime = 0f;
+                //_drivePaused = false;
+                //_drivingBackwardsTime = 0f;
                 _startedMoving = true;
-                _drivingBackwards = false;
+                //_drivingBackwards = false;
                 _onStartedDriving.Invoke();
 
                 if(_stopped)
