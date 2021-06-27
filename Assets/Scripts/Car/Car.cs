@@ -108,6 +108,12 @@ public class Car : MonoBehaviour
             _distance += Vector3.Distance(_rigidbody.position, _oldPos);
 
             _oldPos = _rigidbody.position;
+
+            if(_distance > 10000)
+            {
+                UIManager.Instance.DoWin();
+                Debug.Log("Distance: "+_distance);
+            }
         }
         else
         {

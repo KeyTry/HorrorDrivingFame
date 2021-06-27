@@ -41,6 +41,7 @@ public class UIManager : MonoBehaviour
     }
     public void DoWin()
     {
+        GameManager.Instance.Playing = false;
         StartCoroutine(DoGameOverCoroutine());
     }
     public IEnumerator DoWinCoroutine()

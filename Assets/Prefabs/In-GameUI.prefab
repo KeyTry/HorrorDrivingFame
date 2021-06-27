@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &339478398654292679
 RectTransform:
   m_ObjectHideFlags: 0
@@ -306,7 +306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7668630694634038643
 RectTransform:
   m_ObjectHideFlags: 0
@@ -541,8 +541,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactionMessage: {fileID: 9085332128909829571}
-  _winContainer: {fileID: 4305886819595405663}
-  _gameOverContainer: {fileID: 4762997259173933997}
+  _winContainer: {fileID: 4762997259173933997}
+  _gameOverContainer: {fileID: 4305886819595405663}
   _gameOverText: {fileID: 4409905760362262788}
   _winText: {fileID: 4697467671374618638}
 --- !u!1 &9085332128909829570
