@@ -14,6 +14,13 @@ public class Radio : InteractableObject
     private AudioClip RadioChangeChanel;
     [SerializeField]
     private AudioSource RadioObj;
+    [SerializeField]
+    private GameObject monster;
+    [SerializeField]
+    private AudioSource monsterSource;
+    [SerializeField]
+    private AudioClip monsterClip;
+
 
     private bool isOn;
 
@@ -22,7 +29,8 @@ public class Radio : InteractableObject
 
     private void Start()
     {
-
+        monsterSource.clip = monsterClip;
+        monsterSource.loop = true;
     }
 
     public override void PerformInteraction()
@@ -57,6 +65,8 @@ public class Radio : InteractableObject
                 RadioObj.loop = true;
                 GameManager.Instance.changeTiredFactor(0.007f);
                 StartCoroutine(NormalizeTire());
+                monster.SetActive(true);
+                monsterSource.Play();
             }
             else
             {
@@ -74,6 +84,8 @@ public class Radio : InteractableObject
             RadioObj.Stop();
             GameManager.Instance.changeTiredFactor(0.005f);
             isOn = false;
+            monster.SetActive(false);
+            monsterSource.Stop();
         }
 
             
