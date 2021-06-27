@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0009753071, g: 0.000001209402, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.0009753058, g: 0.000001209402, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -386,6 +386,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271922306}
   m_CullTransparentMesh: 1
+--- !u!1001 &272158213
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 857054323700532193}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 66c6311564a36c24ea724a4f38c267e7, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 66c6311564a36c24ea724a4f38c267e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.317
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 66c6311564a36c24ea724a4f38c267e7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.081
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 66c6311564a36c24ea724a4f38c267e7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.087
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 66c6311564a36c24ea724a4f38c267e7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.2588199
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 66c6311564a36c24ea724a4f38c267e7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.9659257
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 66c6311564a36c24ea724a4f38c267e7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0000020862656
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 66c6311564a36c24ea724a4f38c267e7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0000020862653
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 66c6311564a36c24ea724a4f38c267e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -150
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 66c6311564a36c24ea724a4f38c267e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 66c6311564a36c24ea724a4f38c267e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 66c6311564a36c24ea724a4f38c267e7, type: 3}
+      propertyPath: m_Name
+      value: Radio
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 66c6311564a36c24ea724a4f38c267e7, type: 3}
 --- !u!1 &279307576
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volumeProfile: {fileID: 11400000, guid: 45e05a7673d969146b4daae3beac4b1f, type: 2}
   isEnabled: 1
-  fogDensity: 8
+  fogDensity: 3
   fogDistance: 1
   fogNear: 33
   fogFar: 68.7
@@ -871,6 +928,14 @@ MonoBehaviour:
   - _audio: 2
     _audioType: 1
     _clip: {fileID: 8300000, guid: 4ec62b50285b43a468f9af7862278f95, type: 3}
+    _oneShot: 1
+  - _audio: 3
+    _audioType: 1
+    _clip: {fileID: 8300000, guid: 8e035cf85f45a784b8e730fc7a449c09, type: 3}
+    _oneShot: 1
+  - _audio: 4
+    _audioType: 1
+    _clip: {fileID: 8300000, guid: cfbddd425244e0440a994680b2d62bc9, type: 3}
     _oneShot: 1
   _audioSources:
   - _thisAudioSource: {fileID: 180556770}
@@ -1364,7 +1429,7 @@ RectTransform:
   m_AnchoredPosition: {x: 205.4, y: 0}
   m_SizeDelta: {x: 371.38, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!84 &1093084348
+--- !u!84 &1310318657
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1378,8 +1443,8 @@ RenderTexture:
   m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
   serializedVersion: 4
-  m_Width: 399
-  m_Height: 565
+  m_Width: 1007
+  m_Height: 626
   m_AntiAliasing: 1
   m_MipCount: -1
   m_DepthStencilFormat: 90
@@ -1975,7 +2040,7 @@ PrefabInstance:
     - target: {fileID: 1859403710, guid: 2240783766d29604c84899bbca6446f5, type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1093084348}
+      objectReference: {fileID: 1310318657}
     - target: {fileID: 2138268826, guid: 2240783766d29604c84899bbca6446f5, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.6055721

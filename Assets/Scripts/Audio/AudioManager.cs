@@ -7,14 +7,15 @@ public enum Audios
 {
     CarStart,
     CarEngine,
-    CoffeeSip
+    CoffeeSip,
+    RadioButton,
+    StaticChangeChannel,
 }
 public enum AudioType
 {
     Car,
     Player,
     Environment,
-    Radio
 }
 
 [Serializable]
