@@ -13,6 +13,7 @@ public class Radio : InteractableObject
     [SerializeField]
     private AudioClip RadioChangeChanel;
 
+    private bool isOn;
 
 
     private void Start()
@@ -23,6 +24,12 @@ public class Radio : InteractableObject
     public override void PerformInteraction()
     {
 
+        if (!isOn) {
+
+        }
+
+            AudioManager.Instance.PlayAudio(Audios.RadioButton);
+            AudioManager.Instance.PlayAudio(Audios.StaticChangeChannel);
             Debug.Log("Perform interaction!");
             GameManager.Instance.IncreaseTired(0.5f);
             GameManager.Instance.changeTiredFactor(0.003f);
