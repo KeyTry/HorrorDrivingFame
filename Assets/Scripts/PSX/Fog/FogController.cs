@@ -14,7 +14,7 @@ namespace PSX
 
         [Range(0, 10)]
         [SerializeField] private float fogDensity = 1.0f;
-        [Range(0, 100)]
+        [Range(0, 20)]
         [SerializeField] private float fogDistance = 10.0f;
         [Range(0, 100)]
         [SerializeField] private float fogNear = 1.0f;
