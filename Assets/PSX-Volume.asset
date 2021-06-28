@@ -15,10 +15,10 @@ MonoBehaviour:
   active: 1
   widthPixelation:
     m_OverrideState: 1
-    m_Value: 256
+    m_Value: 128
   heightPixelation:
     m_OverrideState: 1
-    m_Value: 256
+    m_Value: 128
   colorPrecision:
     m_OverrideState: 1
     m_Value: 512
@@ -37,7 +37,7 @@ MonoBehaviour:
   active: 1
   fogDensity:
     m_OverrideState: 1
-    m_Value: 8
+    m_Value: 3
   fogDistance:
     m_OverrideState: 1
     m_Value: 1
