@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public float Sanity { get => _sanity; set => _sanity = value; }
     public float Tired { get => _tired; set => _tired = value; }
     public bool GameStarted { get => _gameStarted; set => _gameStarted = value; }
+    public bool Lost { get => _lost; set => _lost = value; }
 
     private float _sanity = 1f;
     private float _tired = 1f;
