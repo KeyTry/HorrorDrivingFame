@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public float Sanity { get => _sanity; set => _sanity = value; }
     public float Tired { get => _tired; set => _tired = value; }
     public bool GameStarted { get => _gameStarted; set => _gameStarted = value; }
+    public bool Lost { get => _lost; set => _lost = value; }
 
     private float _sanity = 1f;
     private float _tired = 1f;
@@ -27,7 +28,13 @@ public class GameManager : MonoBehaviour
     private bool _gameStarted = false;
     private bool _playing = true;
 
-    private void Start()
+    private float _fogDensityMax = 6f;
+    private float _fogDensityMin = 1f;
+    private float _fogDistanceMax = 9f;
+
+    private float _fogDistanceMin = 0.1f;
+
+    private void Awake()
     {
         _fogController = FindObjectOfType<FogController>();
         if (_instance != null && _instance != this)
@@ -38,6 +45,11 @@ public class GameManager : MonoBehaviour
         {
             _instance = this;
         }
+    }
+
+    private void Start()
+    {
+        _fogController = FindObjectOfType<FogController>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -53,7 +65,8 @@ public class GameManager : MonoBehaviour
 
         if(_gameStarted)
         {
-            _fogController.FogDistance = Mathf.Lerp(12f, 0.6f, _tired);
+            _fogController.FogDistance = Mathf.Lerp(_fogDistanceMax, _fogDistanceMin, _tired);
+            _fogController.FogDensity = Mathf.Lerp(_fogDensityMax, _fogDensityMin, _tired);
         }
 
         if(_tired <= 0f && !_lost)
@@ -61,6 +74,15 @@ public class GameManager : MonoBehaviour
             _lost = true;
             UIManager.Instance.DoGameOver();
         }
+    }
+
+    public float GetCurrentFogDensity()
+    {
+        return Mathf.Lerp(_fogDistanceMax, _fogDistanceMin, _tired);
+    }
+    public float GetCurrentFogDistance()
+    {
+        return Mathf.Lerp(_fogDensityMax, _fogDensityMin, _tired);
     }
 
     public void IncreaseTired(float pIncrease)

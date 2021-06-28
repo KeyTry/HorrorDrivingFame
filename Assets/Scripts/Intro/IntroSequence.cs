@@ -20,18 +20,23 @@ public class IntroSequence : MonoBehaviour
     private Car _car;
 
 
-    private float _fogMax = 100f;
+    private float _fogDensityMax = 20f;
+    private float _fogDensityMin = 3f;
+    private float _fogDistanceMax = 20f;
 
-    private float _fogMin = 1f;
+    private float _fogDistanceMin = 1f;
 
     private bool _started = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        _fogController.FogDistance = _fogMax;
+        _fogController.FogDensity = _fogDensityMax;
+        _fogController.FogDistance = _fogDistanceMax;
 
         StartCoroutine(Sequence());
+        _fogDensityMin = GameManager.Instance.GetCurrentFogDensity();
+        _fogDistanceMin = GameManager.Instance.GetCurrentFogDistance();
     }
 
     public void OnStarted()
@@ -59,7 +64,6 @@ public class IntroSequence : MonoBehaviour
         StartCoroutine(ToggleText(_introText, false, 3f));
 
         yield return new WaitForSeconds(2f);
-        GameManager.Instance.GameStarted = true;
 
         for (int i = 0; i < _instructionsText.Length; i++)
         {
@@ -86,12 +90,13 @@ public class IntroSequence : MonoBehaviour
 
         while(normal < 1f)
         {
-            _fogController.FogDistance = Mathf.Lerp(_fogMax, _fogMin, normal);
-
+            _fogController.FogDistance = Mathf.Lerp(_fogDistanceMax, _fogDistanceMin, normal);
+            _fogController.FogDensity = Mathf.Lerp(_fogDensityMax, _fogDensityMin, normal);
             normal += Time.deltaTime / 4f;
 
             yield return null;
         }
+        GameManager.Instance.GameStarted = true;
 
         yield return null;
     }

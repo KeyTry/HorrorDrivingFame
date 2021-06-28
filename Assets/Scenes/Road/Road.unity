@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0009753058, g: 0.000001209402, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.0009753071, g: 0.000001209402, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -335,8 +335,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volumeProfile: {fileID: 11400000, guid: 45e05a7673d969146b4daae3beac4b1f, type: 2}
   isEnabled: 1
-  fogDensity: 3
-  fogDistance: 1
+  fogDensity: 10
+  fogDistance: 20
   fogNear: 33
   fogFar: 68.7
   fogAltScale: 20.9
@@ -769,6 +769,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835635379}
   m_CullTransparentMesh: 1
+--- !u!20 &875507733 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 857054323138852111, guid: 2240783766d29604c84899bbca6446f5, type: 3}
+  m_PrefabInstance: {fileID: 857054323700532192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1320615999
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,15 +1001,15 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 875507733}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_AdditionalShaderChannelsFlag: 1
+  m_SortingLayerID: -186931145
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!1001 &1618393324
@@ -1029,6 +1034,22 @@ PrefabInstance:
     - target: {fileID: 8209623421848020328, guid: 391b0e5eecb06f04b80143f08d648371, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085332128129578592, guid: 391b0e5eecb06f04b80143f08d648371, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 875507733}
+    - target: {fileID: 9085332128129578592, guid: 391b0e5eecb06f04b80143f08d648371, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085332128129578592, guid: 391b0e5eecb06f04b80143f08d648371, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -186931145
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085332128129578592, guid: 391b0e5eecb06f04b80143f08d648371, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 9085332128129578593, guid: 391b0e5eecb06f04b80143f08d648371, type: 3}
       propertyPath: m_Pivot.x
@@ -1122,6 +1143,14 @@ PrefabInstance:
       propertyPath: _restartHint
       value: 
       objectReference: {fileID: 835635381}
+    - target: {fileID: 9085332128909829570, guid: 391b0e5eecb06f04b80143f08d648371, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085332128909829571, guid: 391b0e5eecb06f04b80143f08d648371, type: 3}
+      propertyPath: m_fontColor.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 391b0e5eecb06f04b80143f08d648371, type: 3}
 --- !u!1 &1748404215
@@ -1404,6 +1433,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 857054323138852114, guid: 2240783766d29604c84899bbca6446f5, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 857054323507589757, guid: 2240783766d29604c84899bbca6446f5, type: 3}
       propertyPath: m_Name
       value: Car
@@ -1452,7 +1485,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1331641235, guid: 2240783766d29604c84899bbca6446f5, type: 3}
+    - {fileID: 1516643703, guid: 2240783766d29604c84899bbca6446f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2240783766d29604c84899bbca6446f5, type: 3}
 --- !u!1001 &1183195943475922329
 PrefabInstance:
