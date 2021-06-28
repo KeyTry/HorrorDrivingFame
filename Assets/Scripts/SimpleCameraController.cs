@@ -132,7 +132,7 @@ namespace UnityTemplateProjects
             direction.z = moveDelta.y;
             direction.y = verticalMovementAction.ReadValue<Vector2>().y;
 #else
-            if (Input.GetKey(KeyCode.W))
+            /*if (Input.GetKey(KeyCode.W))
             {
                 direction += Vector3.forward;
             }
@@ -155,7 +155,7 @@ namespace UnityTemplateProjects
             if (Input.GetKey(KeyCode.E))
             {
                 direction += Vector3.up;
-            }
+            }*/
 #endif
             return direction;
         }
@@ -227,7 +227,7 @@ namespace UnityTemplateProjects
 #if ENABLE_INPUT_SYSTEM
             return boostFactorAction.ReadValue<Vector2>().y * 0.01f;
 #else
-            return Input.mouseScrollDelta.y * 0.2f;
+            //return Input.mouseScrollDelta.y * 0.2f;
 #endif
         }
 
@@ -236,7 +236,7 @@ namespace UnityTemplateProjects
 #if ENABLE_INPUT_SYSTEM
             return lookAction.ReadValue<Vector2>();
 #else
-            return new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) * 10;
+            //return new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) * 10;
 #endif
         }
 
@@ -247,7 +247,7 @@ namespace UnityTemplateProjects
             boost |= Gamepad.current != null ? Gamepad.current.xButton.isPressed : false;
             return boost;
 #else
-            return Input.GetKey(KeyCode.LeftShift);
+            //return Input.GetKey(KeyCode.LeftShift);
 #endif
         }
 
@@ -256,7 +256,7 @@ namespace UnityTemplateProjects
 #if ENABLE_INPUT_SYSTEM
             return Keyboard.current != null ? Keyboard.current.escapeKey.isPressed : false;
 #else
-            return Input.GetKey(KeyCode.Escape);
+            //return Input.GetKey(KeyCode.Escape);
 #endif
         }
 
@@ -267,7 +267,7 @@ namespace UnityTemplateProjects
             canRotate |= Gamepad.current != null ? Gamepad.current.rightStick.ReadValue().magnitude > 0 : false;
             return canRotate;
 #else
-            return Input.GetMouseButton(1);
+            //return Input.GetMouseButton(1);
 #endif
         }
 
@@ -276,7 +276,7 @@ namespace UnityTemplateProjects
 #if ENABLE_INPUT_SYSTEM
             return Mouse.current != null ? Mouse.current.rightButton.isPressed : false;
 #else
-            return Input.GetMouseButtonDown(1);
+            //return Input.GetMouseButtonDown(1);
 #endif
         }
 
@@ -285,7 +285,7 @@ namespace UnityTemplateProjects
 #if ENABLE_INPUT_SYSTEM
             return Mouse.current != null ? !Mouse.current.rightButton.isPressed : false;
 #else
-            return Input.GetMouseButtonUp(1);
+            //return Input.GetMouseButtonUp(1);
 #endif
         }
     }

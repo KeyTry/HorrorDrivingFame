@@ -9,10 +9,6 @@ public class Radio : InteractableObject
     [SerializeField]
     private AudioClip[] staticAudio;
     [SerializeField]
-    private AudioClip RadioButton;
-    [SerializeField]
-    private AudioClip RadioChangeChanel;
-    [SerializeField]
     private AudioSource RadioObj;
     [SerializeField]
     private GameObject monster1;
@@ -80,8 +76,8 @@ public class Radio : InteractableObject
             {
                 RadioObj.clip = audioMusic[Random.Range(0, audioMusic.Length)];
                 RadioObj.loop = false;
-                GameManager.Instance.IncreaseTired(0.1f);
-                GameManager.Instance.changeTiredFactor(0.08f);
+                GameManager.Instance.IncreaseTired(0.05f);
+                GameManager.Instance.changeTiredFactor(0.003f);
                 StartCoroutine(NormalizeTire());
                 StartCoroutine(ApagarRadio());
             }
@@ -91,7 +87,7 @@ public class Radio : InteractableObject
             AudioManager.Instance.PlayAudio(Audios.RadioButton);
             AudioManager.Instance.PlayAudio(Audios.StaticChangeChannel);
             RadioObj.Stop();
-            GameManager.Instance.changeTiredFactor(0.09f);
+            GameManager.Instance.changeTiredFactor(0.006f);
             isOn = false;
             monster1.SetActive(false);
             monsterSource1.Stop();
@@ -106,11 +102,11 @@ public class Radio : InteractableObject
     IEnumerator NormalizeTire()
     {
         yield return new WaitForSeconds(15);
-        GameManager.Instance.changeTiredFactor(0.01f);
+        GameManager.Instance.changeTiredFactor(0.005f);
     }
 
     IEnumerator ApagarRadio() {
-        yield return new WaitForSeconds(60);
+        yield return new WaitForSeconds(20);
         if (isOn) {
             AudioManager.Instance.PlayAudio(Audios.StaticChangeChannel);
             RadioObj.Stop();
