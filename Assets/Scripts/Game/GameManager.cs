@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     private float _tired = 1f;
 
     private float _sanityFactor = 0.006f;
-    private float _tiredFactor = 0.005f;
+    private float _tiredFactor = 0.007f;
 
     private FogController _fogController;
 

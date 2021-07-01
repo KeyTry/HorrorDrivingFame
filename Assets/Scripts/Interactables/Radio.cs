@@ -102,7 +102,7 @@ public class Radio : InteractableObject
     IEnumerator NormalizeTire()
     {
         yield return new WaitForSeconds(15);
-        GameManager.Instance.changeTiredFactor(0.005f);
+        GameManager.Instance.changeTiredFactor(0.007f);
     }
 
     IEnumerator ApagarRadio() {
